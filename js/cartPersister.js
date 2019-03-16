@@ -1,4 +1,6 @@
-class CartPersister {
+import {ConsoleLogger} from "./consoleLogger.js";
+
+export class CartPersister {
 	constructor() {
 		this.storage = sessionStorage;
 		this.key = 'cart';

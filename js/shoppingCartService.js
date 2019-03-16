@@ -1,7 +1,16 @@
-class ShoppingCartService {
+import { CartPersister } from "./cartPersister.js";
+import { Item } from "./item.js";
+
+export class ShoppingCartService {
     constructor() {
         this.items = [];
         this.persister = new CartPersister();
+        let items = this.persister.read();
+        if (items)
+            items.forEach(item => {
+                let itemObject = new Item(item.id, item.name, item.price, item.quantity);
+                this.addItem(itemObject);
+            });
     }
     addItem = (item) => this.items.push(item);
     removeItem = (item) => this.items = this.items.filter(i => i != item);

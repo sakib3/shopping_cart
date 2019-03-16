@@ -1,4 +1,4 @@
-class ConsoleLogger {
+export class ConsoleLogger {
     constructor() {
     }
     log = (data) => console.log(data);
